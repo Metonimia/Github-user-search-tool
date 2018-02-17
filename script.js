@@ -1,8 +1,3 @@
-ReactDOM.render(
-	<App />,
-	document.getElementById('root')
-);
-
 class App extends React.Component {
 	constructor() {
 		super();
@@ -22,7 +17,7 @@ class App extends React.Component {
 		const url = `https://api.github.com/search/users?q=${searchText}`;
 		fetch(url)
 			.then(response => response.json())
-			.then(responseJson => this.setState({users: responseJson.itmes}));
+			.then(responseJson => this.setState({users: responseJson.items}));
 	}
 
 	render() {
@@ -66,4 +61,10 @@ class User extends React.Component {
 		);
 	}
 }
+
+ReactDOM.render(
+	<App />,
+	document.getElementById('root')
+);
+
 
